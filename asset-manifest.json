@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/geofoundation-website/static/css/main.48ae7f42.css",
+    "main.js": "/geofoundation-website/static/js/main.ac0e31ac.js",
+    "static/js/453.246d506e.chunk.js": "/geofoundation-website/static/js/453.246d506e.chunk.js",
+    "index.html": "/geofoundation-website/index.html",
+    "main.48ae7f42.css.map": "/geofoundation-website/static/css/main.48ae7f42.css.map",
+    "main.ac0e31ac.js.map": "/geofoundation-website/static/js/main.ac0e31ac.js.map",
+    "453.246d506e.chunk.js.map": "/geofoundation-website/static/js/453.246d506e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.48ae7f42.css",
+    "static/js/main.ac0e31ac.js"
+  ]
+}
