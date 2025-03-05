@@ -124,7 +124,6 @@ const ContactSection: React.FC = () => {
               <div>
                 <h3>Email</h3>
                 <p><a href="mailto:contact@geofoundation.ai">contact@geofoundation.ai</a></p>
-                <p><a href="mailto:support@geofoundation.ai">support@geofoundation.ai</a></p>
               </div>
             </div>
             
@@ -141,7 +140,6 @@ const ContactSection: React.FC = () => {
               <h3>Follow Us</h3>
               <div className="social-icons">
                 <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">Twitter</a>
               </div>
             </div>
           </div>
