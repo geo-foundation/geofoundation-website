@@ -1,9 +1,10 @@
 {
-  "name": "geofoundation-website", 
+  "name": "geofoundation-website",
   "version": "0.1.0",
   "private": true,
   "homepage": "./",
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@react-three/fiber": "^8.17.14",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
