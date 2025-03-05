@@ -1,8 +1,8 @@
 {
-  "name": "geofoundation-website",
+  "name": "geofoundation-website", 
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://sprenkamp.github.io/geofoundation-website",
+  "homepage": "./",
   "dependencies": {
     "@react-three/fiber": "^8.17.14",
     "@testing-library/jest-dom": "^5.17.0",
