@@ -31,7 +31,7 @@ const TeamSection: React.FC = () => {
           
           <div className="team-member">
             <div className="member-image">
-              <img src="/data/team/konstantin.avif" alt="Konstantin Gerner" />
+              <img src="/data/team/konstantin.jpg" alt="Konstantin Gerner" />
             </div>
             <div className="team-info">
               <h3>Konstantin Gerner</h3>
@@ -51,9 +51,8 @@ const TeamSection: React.FC = () => {
           <h3>Join Our Team</h3>
           <p>
             We're looking for passionate individuals to help us build the future of geopolitical risk intelligence. 
-            Check out our open positions or send your resume to careers@geofoundation.ai
+            If you're interested in joining our team, pleass use the contact form below to get in touch.
           </p>
-          <button className="secondary-button">View Open Positions</button>
         </div>
       </div>
     </section>

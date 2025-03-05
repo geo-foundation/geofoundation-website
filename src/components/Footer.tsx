@@ -27,7 +27,6 @@ const Footer: React.FC = () => {
         <div className="footer-column">
           <h3>Contact Info</h3>
           <ul className="footer-links">
-            <li>Wannerstrasse 35, 8045 Zurich</li>
             <li>Switzerland: +41 76 652 43 70</li>
             <li>Austria: +43 677 6163 2531</li>
             <li><a href="mailto:contact@geofoundation.ai">contact@geofoundation.ai</a></li>

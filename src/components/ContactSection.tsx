@@ -1,8 +1,10 @@
 // src/components/ContactSection.tsx
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import '../App.css';
 
 const ContactSection: React.FC = () => {
+  const form = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -11,6 +13,8 @@ const ContactSection: React.FC = () => {
   });
   
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -22,20 +26,38 @@ const ContactSection: React.FC = () => {
   
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real implementation, you would send this data to your backend
-    console.log('Form submitted:', formData);
-    setFormSubmitted(true);
+    setIsSubmitting(true);
+    setSubmitError('');
     
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setFormSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        message: '',
-      });
-    }, 3000);
+    // Access environment variables
+    const serviceId = process.env.EMAILJS_SERVICE_ID || '';
+    const templateId = process.env.EMAILJS_TEMPLATE_ID || '';
+    const publicKey = process.env.EMAILJS_PUBLIC_KEY || '';
+    
+    if (form.current) {
+      emailjs.sendForm(serviceId, templateId, form.current, publicKey)
+        .then((result) => {
+          console.log('Email sent successfully:', result.text);
+          setFormSubmitted(true);
+          setIsSubmitting(false);
+          
+          // Reset form after 5 seconds
+          setTimeout(() => {
+            setFormSubmitted(false);
+            setFormData({
+              name: '',
+              email: '',
+              company: '',
+              message: '',
+            });
+          }, 5000);
+        })
+        .catch((error) => {
+          console.error('Email sending failed:', error);
+          setSubmitError('Failed to send message. Please try again later.');
+          setIsSubmitting(false);
+        });
+    }
   };
   
   return (
@@ -55,7 +77,7 @@ const ContactSection: React.FC = () => {
                 <p>We'll get back to you shortly.</p>
               </div>
             ) : (
-              <form className="contact-form" onSubmit={handleSubmit}>
+              <form className="contact-form" ref={form} onSubmit={handleSubmit}>
                 <div className="form-group">
                   <label htmlFor="name">Name</label>
                   <input 
@@ -104,7 +126,15 @@ const ContactSection: React.FC = () => {
                   />
                 </div>
                 
-                <button type="submit" className="submit-button">Send Message</button>
+                {submitError && <div className="error-message">{submitError}</div>}
+                
+                <button 
+                  type="submit" 
+                  className="submit-button" 
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                </button>
               </form>
             )}
           </div>
@@ -114,8 +144,8 @@ const ContactSection: React.FC = () => {
               <div className="contact-icon">📞</div>
               <div>
                 <h3>Phone</h3>
-                <p>Austria: +43 677 6163 2531</p>
                 <p>Switzerland: +41 76 652 43 70</p>
+                <p>Austria: +43 677 6163 2531</p>
               </div>
             </div>
             
@@ -124,15 +154,6 @@ const ContactSection: React.FC = () => {
               <div>
                 <h3>Email</h3>
                 <p><a href="mailto:contact@geofoundation.ai">contact@geofoundation.ai</a></p>
-              </div>
-            </div>
-            
-            <div className="contact-item">
-              <div className="contact-icon">📍</div>
-              <div>
-                <h3>Office</h3>
-                <p>Wannerstrasse 35</p>
-                <p>8045 Zurich, Switzerland</p>
               </div>
             </div>
             
