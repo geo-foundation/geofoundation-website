@@ -1,9 +1,16 @@
 // src/components/ContactSection.tsx
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 import '../App.css';
 
 const ContactSection: React.FC = () => {
+  // Initialize EmailJS
+  useEffect(() => {
+    const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || '';
+    if (publicKey) {
+      emailjs.init(publicKey);
+    }
+  }, []);
   const form = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
     name: '',
@@ -30,9 +37,9 @@ const ContactSection: React.FC = () => {
     setSubmitError('');
     
     // Access environment variables
-    const serviceId = process.env.EMAILJS_SERVICE_ID || '';
-    const templateId = process.env.EMAILJS_TEMPLATE_ID || '';
-    const publicKey = process.env.EMAILJS_PUBLIC_KEY || '';
+    const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID || '';
+    const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID || '';
+    const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || '';
     
     if (form.current) {
       emailjs.sendForm(serviceId, templateId, form.current, publicKey)
