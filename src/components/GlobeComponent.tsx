@@ -67,7 +67,6 @@ interface TooltipData {
   y: number;
   isHighRisk?: boolean;
   riskLevel?: number;
-  riskType?: 'supply' | 'political' | 'environmental' | 'financial';
 }
 
 
@@ -126,17 +125,6 @@ const GlobeComponent: React.FC = () => {
     const oceanMesh = new THREE.Mesh(oceanGeometry, oceanMaterial);
     oceanMesh.renderOrder = 0;
     globeGroup.add(oceanMesh);
-    
-    // Add atmospheric glow effect
-    const glowGeometry = new THREE.SphereGeometry(2.15, 64, 64);
-    const glowMaterial = new THREE.MeshBasicMaterial({
-      color: COLORS.primaryLight,
-      transparent: true,
-      opacity: 0.05,
-      side: THREE.BackSide,
-    });
-    const glowMesh = new THREE.Mesh(glowGeometry, glowMaterial);
-    globeGroup.add(glowMesh);
 
     // --- Enhanced Lighting ---
     // Ambient light for general illumination
@@ -327,13 +315,16 @@ const GlobeComponent: React.FC = () => {
       markerMesh.userData = { 
         description: node.description,
         isHighRisk: node.highRisk,
-        riskLevel: node.riskLevel,
-        riskType: node.riskType
+        riskLevel: node.riskLevel
       };
       markersGroup.add(markerMesh);
       markerMeshesRef.current.push(markerMesh);
       
-      // Add simple pulsing/impact wave effect for high risk nodes
+      // Add radar-like wave effect for all nodes, with enhanced effect for high risk nodes
+      // Create a reference to the node position for radar waves
+      markerMesh.userData.position = pos.clone();
+      
+      // Add blinking/pulsing effect for high risk nodes
       if (node.highRisk) {
         // Get risk level from node data or default to 2
         const riskLevel = node.riskLevel || 2;
@@ -438,8 +429,7 @@ const GlobeComponent: React.FC = () => {
           x: screenX,
           y: screenY,
           isHighRisk: intersect.object.userData.isHighRisk,
-          riskLevel: intersect.object.userData.riskLevel,
-          riskType: intersect.object.userData.riskType,
+          riskLevel: intersect.object.userData.riskLevel
         });
       } else {
         setTooltip(null);

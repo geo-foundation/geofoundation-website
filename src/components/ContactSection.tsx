@@ -31,6 +31,27 @@ const ContactSection: React.FC = () => {
     }));
   };
   
+  // For programmatic updates from other components
+  useEffect(() => {
+    const messageElement = document.getElementById('message');
+    if (messageElement) {
+      messageElement.addEventListener('change', (e: Event) => {
+        const target = e.target as HTMLTextAreaElement;
+        setFormData(prevState => ({
+          ...prevState,
+          message: target.value,
+        }));
+      });
+    }
+    
+    return () => {
+      const messageElement = document.getElementById('message');
+      if (messageElement) {
+        messageElement.removeEventListener('change', () => {});
+      }
+    };
+  }, []);
+  
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);

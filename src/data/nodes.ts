@@ -7,7 +7,6 @@ export interface BusinessNode {
   highRisk?: boolean;
   description?: string;
   riskLevel?: number; // 1-3, with 3 being highest
-  riskType?: 'supply' | 'political' | 'environmental' | 'financial';
 }
 
 /*
@@ -42,7 +41,6 @@ export const nodes: BusinessNode[] = [
     lon: 19.0,
     highRisk: true,
     riskLevel: 3,
-    riskType: 'supply',
     description: 'CRITICAL RISK: Energy Crisis - Major disruption due to North Stream Two incident affecting European operations.'
   },
   {
@@ -51,7 +49,6 @@ export const nodes: BusinessNode[] = [
     lon: 139.6917,
     highRisk: true,
     riskLevel: 2,
-    riskType: 'financial',
     description: 'HIGH RISK: Economic Downturn in Japan - Significant impact on supply chain and regional sales.'
   },
   {
@@ -96,7 +93,6 @@ export const nodes: BusinessNode[] = [
     lon: 121.5654,
     highRisk: true,
     riskLevel: 3,
-    riskType: 'supply',
     description: 'CRITICAL RISK: Semiconductor Shortage - Severe disruption from global chip supply shortage affecting product delivery.'
   },
   {
@@ -105,7 +101,6 @@ export const nodes: BusinessNode[] = [
     lon: -77.0369,
     highRisk: true,
     riskLevel: 2,
-    riskType: 'political',
     description: 'HIGH RISK: Regulatory Change - New policies creating compliance challenges and market uncertainty.'
   },
   {
@@ -151,7 +146,6 @@ export const nodes: BusinessNode[] = [
     lon: 114.1694,
     highRisk: true,
     riskLevel: 3,
-    riskType: 'political',
     description: 'CRITICAL RISK: Hong Kong Port Disruption - Trade tensions causing severe logistics delays and supply chain issues.'
   },
   {
@@ -160,7 +154,6 @@ export const nodes: BusinessNode[] = [
     lon: 121.0585,
     highRisk: true,
     riskLevel: 2,
-    riskType: 'environmental',
     description: 'HIGH RISK: Typhoon Season - Recurring seasonal disruptions to regional logistics and operations.'
   },
   
@@ -193,7 +186,6 @@ export const nodes: BusinessNode[] = [
     lon: -62.2159,
     highRisk: true,
     riskLevel: 3,
-    riskType: 'environmental',
     description: 'CRITICAL RISK: Environmental Regulations - New protection laws affecting operational permissions.'
   },
   
@@ -226,7 +218,6 @@ export const nodes: BusinessNode[] = [
     lon: 72.8777,
     highRisk: true,
     riskLevel: 2,
-    riskType: 'supply',
     description: 'HIGH RISK: API Shortage - Raw material supply constraints from Indian manufacturers.'
   }
 ];

@@ -40,7 +40,26 @@ const Header: React.FC = () => {
           <li><a href="#platform" onClick={() => setMenuOpen(false)}>Platform</a></li>
           <li><a href="#team" onClick={() => setMenuOpen(false)}>Team</a></li>
           <li><a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a></li>
-          <li><a href="#" className="cta-link" onClick={() => setMenuOpen(false)}>Get Early Access</a></li>
+          <li>
+            <a 
+              href="#contact" 
+              className="cta-link" 
+              onClick={(e) => {
+                setMenuOpen(false);
+                // Pre-fill the contact form message
+                setTimeout(() => {
+                  const messageElement = document.getElementById('message') as HTMLTextAreaElement;
+                  if (messageElement) {
+                    messageElement.value = "I'm interested in getting early access to GeoFoundation's platform.";
+                    // Trigger the onChange event to update React state
+                    messageElement.dispatchEvent(new Event('change', { bubbles: true }));
+                  }
+                }, 100); // Small delay to ensure form is loaded
+              }}
+            >
+              Get Early Access
+            </a>
+          </li>
         </ul>
       </nav>
     </header>

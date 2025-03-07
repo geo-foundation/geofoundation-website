@@ -5,7 +5,6 @@ import GlobeComponent from './GlobeComponent';
 
 const HeroSection: React.FC = () => {
   const [chatStep, setChatStep] = useState(0);
-  const [showCursor, setShowCursor] = useState(true);
   
   // Define multiple chat sequences to showcase different capabilities
   const supplyChainSequence = [
@@ -49,13 +48,10 @@ const HeroSection: React.FC = () => {
     // Reset state when sequence changes
     setChatStep(0);
     
-    // Blinking cursor effect
-    const cursorInterval = setInterval(() => {
-      setShowCursor(prev => !prev);
-    }, 500);
+    // No blinking cursor effect anymore
     
-    // Chat sequence timing - slower, more deliberate pace
-    const chatTimeline = [1000, 3000, 6000, 9000, 11000, 14000];
+    // Chat sequence timing - much slower pace with immediate response after question
+    const chatTimeline = [2000, 2500, 12000, 18000, 18500, 28000];
     
     // Clear any existing timeouts to avoid conflicts
     const timeoutIds: NodeJS.Timeout[] = [];
@@ -91,15 +87,14 @@ const HeroSection: React.FC = () => {
         });
         
         timeoutIds.push(...newTimeoutIds);
-      }, 3000);
+      }, 8000);
       
       timeoutIds.push(restartTimeout);
-    }, 18000);
+    }, 35000);
 
     timeoutIds.push(resetAnimation);
 
     return () => {
-      clearInterval(cursorInterval);
       timeoutIds.forEach(id => clearTimeout(id));
     };
   }, [currentSequenceIndex]);
@@ -179,17 +174,20 @@ const HeroSection: React.FC = () => {
       <div className="hero-left">
         <h1 className="hero-title">Navigate Global Uncertainty With AI-Driven Intelligence</h1>
         <div className="hero-cta">
-          <button className="cta-button">Get Early Access</button>
+          <a href="#contact" className="cta-button" onClick={() => {
+            // Pre-fill the contact form message
+            const messageElement = document.getElementById('message') as HTMLTextAreaElement;
+            if (messageElement) {
+              messageElement.value = "I'm interested in getting early access to GeoFoundation's platform.";
+              // Trigger the onChange event to update React state
+              messageElement.dispatchEvent(new Event('change', { bubbles: true }));
+            }
+          }}>Get Early Access</a>
           <a href="#platform" className="text-link">Learn More &rarr;</a>
         </div>
         <div className="chat-demo-container">
           <div className="chat-messages">
             {renderMessages()}
-            {chatStep < chatSequence.length && (
-              <div className="typing-indicator">
-                {showCursor && <span className="cursor">|</span>}
-              </div>
-            )}
             <div ref={messagesEndRef} />
           </div>
         </div>
