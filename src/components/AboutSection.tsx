@@ -8,32 +8,32 @@ const AboutSection: React.FC = () => {
       <div className="container">
         <h2 className="section-title">About GeoFoundation</h2>
         <div className="about-content" style={{ maxWidth: '100%' }}>
-          <p className="lead-text">
-            GeoFoundation enables companies to navigate geopolitical developments and empowers them with strategic foresight to turn risks into opportunities in a rapidly changing world.
+          <p className="lead-text" style={{ textAlign: 'justify' }}>
+          Never be surprised by the geopolitical risks affecting your supply chain. GeoFoundation minimizes manual effort, improves response times, and turns global uncertainty into predictable, data-driven actionable insights.
           </p>
-          <p>
-            We connect global macro-level trends with on-the-ground realities, providing actionable insights that support risk management and compliance with evolving regulations.
+          <p style={{ textAlign: 'justify' }}>
+          Our name <strong>GeoFoundation</strong> combines <em>geo</em> (representing geopolitical data) with <em>foundation models</em> (advanced AI technologies like GPT, LLaMA, and Deepseek). We automate risk assessment and compliance activities while bridging global trends with on-the-ground realities to transform fragmented signals into strategic foresight.
           </p>
           <div className="about-highlights">
             <div className="highlight-item">
               <div className="highlight-icon">🔍</div>
               <div className="highlight-text">
                 <h3>Data-Driven Intelligence</h3>
-                <p>Our platform analyzes thousands of data points from diverse sources in real-time.</p>
+                <p style={{ textAlign: 'justify' }}>Our platform analyzes thousands of data points from diverse sources in real-time - delivering up-to-date risk insights to keep you ahead of global uncertainty.</p>
               </div>
             </div>
             <div className="highlight-item">
               <div className="highlight-icon">🤖</div>
               <div className="highlight-text">
-                <h3>Agentic AI Technology</h3>
-                <p>Autonomous agents provide proactive alerts and automate compliance reporting.</p>
+                <h3>AI Agents</h3>
+                <p style={{ textAlign: 'justify' }}>Our AI Agents uses advanced Large Language Models and specialized tools to autonomously gather data to generate actionable insights. Operating continuously, they deliver proactive alerts, reduce manual workloads, and transform evolving geopolitical signals into critical intelligence</p>
               </div>
             </div>
             <div className="highlight-item">
               <div className="highlight-icon">🌐</div>
               <div className="highlight-text">
-                <h3>Global Context Awareness</h3>
-                <p>Transform static risk scores into dynamic strategic insights with local context.</p>
+                <h3>Strategic Foresight & Compliance</h3>
+                <p style={{ textAlign: 'justify' }}>Turn global uncertainty into predictable, data-driven actionable insights while ensuring seamless regulatory compliance.</p>
               </div>
             </div>
           </div>

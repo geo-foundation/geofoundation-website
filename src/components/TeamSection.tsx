@@ -19,7 +19,7 @@ const TeamSection: React.FC = () => {
             <div className="team-info">
               <h3>Kilian Sprenkamp</h3>
               <p className="member-title">Co-Founder</p>
-              <p className="member-bio">
+              <p className="member-bio" style={{ textAlign: 'justify' }}>
                 Doctoral Researcher specializing in AI & Geopolitical Risk Analysis. Prior experience as a Machine Learning Engineer.
               </p>
               <div className="social-links">
@@ -36,8 +36,8 @@ const TeamSection: React.FC = () => {
             <div className="team-info">
               <h3>Konstantin Gerner</h3>
               <p className="member-title">Co-Founder</p>
-              <p className="member-bio">
-                Risk Management Consultant with experience in developing AI-driven solutions for global enterprises.
+              <p className="member-bio" style={{ textAlign: 'justify' }}>
+              Business Continuity & Risk Management Consultant with experience in developing AI-driven solutions for global enterprises.
               </p>
               <div className="social-links">
                 <a href="https://www.linkedin.com/in/konstantingerner/" target="_blank" rel="noopener noreferrer">LinkedIn</a>

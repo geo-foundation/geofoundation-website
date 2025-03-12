@@ -2,24 +2,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { nodes, connections, BusinessNode, Connection } from '../data/nodes';
-
-// Define brand colors to ensure consistency with the rest of the website
-const COLORS = {
-  primary: 0x0056b3,     // Primary blue
-  primaryLight: 0x007bff, // Lighter blue
-  primaryDark: 0x004494,  // Darker blue
-  secondary: 0x1a2b3c,    // Dark blue/slate
-  accent: 0x00d4ff,       // Bright cyan
-  danger: 0xe63946,       // Red for high risk indicators
-  warning: 0xffb400,      // Amber for warnings
-  success: 0x4caf50,      // Green for positive indicators
-  light: 0xf8f9fa,        // Off-white background
-  dark: 0x212529,         // Near black
-  gray: 0x6c757d,         // Medium gray
-  white: 0xffffff,        // White
-  black: 0x000000,        // Black
-};
+import { 
+  nodes, 
+  connections, 
+  BusinessNode, 
+  Connection, 
+  COLORS 
+} from '../data/mapData';
 
 // Helper: convert lat/long to 3D vector on sphere
 const latLongToVector3 = (lat: number, lon: number, radius: number): THREE.Vector3 => {
@@ -464,8 +453,8 @@ const GlobeComponent: React.FC = () => {
   }, []); // markerMeshesRef is a ref so no need to add it to dependencies
 
   return (
-    <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-      <div ref={mountRef} style={{ width: '100%', height: '100%' }} />
+    <div style={{ position: 'relative', width: '100%', height: '100%', maxHeight: '100vh' }}>
+      <div ref={mountRef} style={{ width: '100%', height: '100%', maxHeight: 'calc(100vh - 80px)' }} />
       {tooltip && (
         <div
           style={{

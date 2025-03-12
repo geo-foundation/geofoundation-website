@@ -14,31 +14,10 @@ const Footer: React.FC = () => {
         </div>
         
         <div className="footer-column">
-          <h3>Quick Links</h3>
-          <ul className="footer-links">
-            <li><a href="#hero">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#platform">Platform</a></li>
-            <li><a href="#team">Team</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-        
-        <div className="footer-column">
           <h3>Contact Info</h3>
-          <ul className="footer-links">
-            <li>Switzerland: +41 76 652 43 70</li>
-            <li>Austria: +43 677 6163 2531</li>
+          <ul className="footer-links contact-align-right">
+            <li>+43 677 6163 2531</li>
             <li><a href="mailto:contact@geofoundation.ai">contact@geofoundation.ai</a></li>
-          </ul>
-        </div>
-        
-        <div className="footer-column">
-          <h3>Legal</h3>
-          <ul className="footer-links">
-            <li><a href="/">Privacy Policy</a></li>
-            <li><a href="/">Terms of Service</a></li>
-            <li><a href="/">Cookie Policy</a></li>
           </ul>
         </div>
       </div>

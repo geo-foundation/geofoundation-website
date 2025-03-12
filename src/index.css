@@ -12,9 +12,11 @@
   --success: #4caf50;
   --light: #f8f9fa;
   --dark: #2D3858;
-  --gray: #6c757d;
+  --gray: #676b6f;
   --white: #ffffff;
   --black: #000000;
+  --card-bg: #f8f9fa;
+  --card-bg-dark: #e8e8ed;
 }
 
 * {

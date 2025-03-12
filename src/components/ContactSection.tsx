@@ -172,8 +172,7 @@ const ContactSection: React.FC = () => {
               <div className="contact-icon">📞</div>
               <div>
                 <h3>Phone</h3>
-                <p>Switzerland: +41 76 652 43 70</p>
-                <p>Austria: +43 677 6163 2531</p>
+                <p>+43 677 6163 2531</p>
               </div>
             </div>
             
@@ -188,7 +187,7 @@ const ContactSection: React.FC = () => {
             <div className="contact-social">
               <h3>Follow Us</h3>
               <div className="social-icons">
-                <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://www.linkedin.com/company/geofoundationai" target="_blank" rel="noopener noreferrer">LinkedIn</a>
               </div>
             </div>
           </div>
